@@ -1,7 +1,6 @@
 from app import db
 from . import groceries
 from flask import render_template, request, redirect, Blueprint
-#from ..models import Grocery
 from app.models import Grocery
 
 @groceries.route('/', methods=['GET', 'POST'])
