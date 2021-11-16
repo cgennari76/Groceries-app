@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <h1>Flask CRUD</h1>
+  {% if groceries|length < 1 %}
+  <p>There is nothing to buy for now.</p>
+  {% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>Groceries</th>
+        <th>Added</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for grocery in groceries %}
+      <tr>
+        <td><a href="">{{ grocery.name }}</a></td>
+        <td>{{ grocery.created_at.date() }}</td>
+        <td><a href="">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <form action="/" method="POST">
+    <label for="newStuff">New Stuff:</label>
+    <input type="text" name="name" id="newStuff">
+    <button type="submit">Add</button>
+  </form>
+</div>
+{% endblock content %}
